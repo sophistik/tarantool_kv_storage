@@ -14,8 +14,8 @@ def valid_body(method, body):
         print("Exception {}. body={}".format(str(e), body))
         return False
     if method == 'PUT':
-        return 'value' in json_object
-    return 'key' in json_object and 'value' in json_object
+        return 'value' in json_object and len(json_object) == 1
+    return 'key' in json_object and 'value' in json_object and len(json_object) == 2
 
 
 def get_value_by_key(key):
@@ -97,7 +97,6 @@ def another(request, id):
             logging.warning(u'404 Not found')
             return JsonResponse({"error": True, "message": "Not found"}, status=404)
 
-        # jsn = json.dumps(response[0][-1])
         jsn = response[0][-1]
         return JsonResponse({"value": jsn})
 
