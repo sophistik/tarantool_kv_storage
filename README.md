@@ -46,3 +46,17 @@ $ python3 manage.py makemigrations
 $ python3 manage.py migrate
 $ python3 manage.py runserver
 ```
+#
+
+Также приложение развернуто на удаленном сервере. Проверить его работоспособность можно:
+
+```bash
+$ python3 server_test.py
+```
+
+или (в качестве примера):
+
+```bash
+$ curl -X POST -H "Content-Type: application/json" -d '{"key": "test", "value": "value1"}' http://37.46.132.97/kv/
+$ curl -X GET http://37.46.132.97/kv/test/
+```
