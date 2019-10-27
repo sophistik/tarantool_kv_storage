@@ -43,7 +43,7 @@ def delete_value_by_key(key):
 def post(request):
     logging.basicConfig(format=u'%(levelname)-8s [%(asctime)s] %(message)s',
                                  level=logging.INFO, filename=u'logfile.log')
-    body = request.body
+    body = request.body.decode('utf8')
     method = request.method
 
     if method != 'POST':
@@ -71,7 +71,7 @@ def another(request, id):
     logging.basicConfig(format=u'%(levelname)-8s [%(asctime)s] %(message)s',
                                  level=logging.INFO, filename=u'logfile.log')
     key = str(id)
-    body = request.body
+    body = request.body.decode('utf8')
     method = request.method
 
     if method == 'PUT':
