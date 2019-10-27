@@ -34,7 +34,7 @@ tarantool> s:create_index('primary', { type = 'hash', parts = {'key'}   })
 tarantool> box.schema.user.grant('guest', 'read,write', 'universe')
 ```
 
-Django app:
+Приложение:
 
 ```bash
 $ git clone https://github.com/sophistik/tarantool_kv_storage.git
